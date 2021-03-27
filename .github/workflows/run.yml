@@ -1,0 +1,23 @@
+name: Run
+
+on:
+  push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: build
+      run: |
+        docker build . --tag myimage --build-arg NAME=akira
+
+
+    - name: run
+      run: |
+        result=$(docker run myimage)
+        echo "::set-output name=result::${result}"
+    
