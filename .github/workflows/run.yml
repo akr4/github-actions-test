@@ -15,9 +15,7 @@ jobs:
       run: |
         docker build . --tag myimage --build-arg NAME=akira
 
-
     - name: run
       run: |
-        result=$(docker run myimage)
-        echo "::set-output name=result::${result}"
+        docker run myimage
     
