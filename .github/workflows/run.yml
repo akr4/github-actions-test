@@ -13,7 +13,7 @@ jobs:
 
     - name: build
       run: |
-        docker build . --tag myimage --build-arg NAME=akira
+        docker build . --tag myimage --build-arg NAME=akira BUILD_NUMBER=${GITHUB_RUN_NUMBER}
 
     - name: run
       run: |
